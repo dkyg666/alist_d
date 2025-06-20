@@ -3,8 +3,8 @@ package db
 import (
 	"fmt"
 
-	"github.com/alist-org/alist/v3/internal/model"
 	"github.com/pkg/errors"
+	"github.com/vscodev/alist/v3/internal/model"
 )
 
 func GetSettingItems() ([]model.SettingItem, error) {

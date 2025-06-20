@@ -1,13 +1,13 @@
 package op
 
 import (
-	"github.com/alist-org/alist/v3/internal/errs"
+	"github.com/vscodev/alist/v3/internal/errs"
 	stdpath "path"
 	"strings"
 
-	"github.com/alist-org/alist/v3/internal/driver"
-	"github.com/alist-org/alist/v3/pkg/utils"
 	log "github.com/sirupsen/logrus"
+	"github.com/vscodev/alist/v3/internal/driver"
+	"github.com/vscodev/alist/v3/pkg/utils"
 )
 
 // GetStorageAndActualPath Get the corresponding storage and actual path

@@ -3,15 +3,15 @@ package data
 import (
 	"strconv"
 
-	"github.com/alist-org/alist/v3/cmd/flags"
-	"github.com/alist-org/alist/v3/internal/conf"
-	"github.com/alist-org/alist/v3/internal/db"
-	"github.com/alist-org/alist/v3/internal/model"
-	"github.com/alist-org/alist/v3/internal/offline_download/tool"
-	"github.com/alist-org/alist/v3/internal/op"
-	"github.com/alist-org/alist/v3/pkg/utils"
-	"github.com/alist-org/alist/v3/pkg/utils/random"
 	"github.com/pkg/errors"
+	"github.com/vscodev/alist/v3/cmd/flags"
+	"github.com/vscodev/alist/v3/internal/conf"
+	"github.com/vscodev/alist/v3/internal/db"
+	"github.com/vscodev/alist/v3/internal/model"
+	"github.com/vscodev/alist/v3/internal/offline_download/tool"
+	"github.com/vscodev/alist/v3/internal/op"
+	"github.com/vscodev/alist/v3/pkg/utils"
+	"github.com/vscodev/alist/v3/pkg/utils/random"
 	"gorm.io/gorm"
 )
 
@@ -94,10 +94,10 @@ func InitialSettings() []model.SettingItem {
 	initialSettingItems = []model.SettingItem{
 		// site settings
 		{Key: conf.VERSION, Value: conf.Version, Type: conf.TypeString, Group: model.SITE, Flag: model.READONLY},
-		//{Key: conf.ApiUrl, Value: "", Type: conf.TypeString, Group: model.SITE},
-		//{Key: conf.BasePath, Value: "", Type: conf.TypeString, Group: model.SITE},
+		// {Key: conf.ApiUrl, Value: "", Type: conf.TypeString, Group: model.SITE},
+		// {Key: conf.BasePath, Value: "", Type: conf.TypeString, Group: model.SITE},
 		{Key: conf.SiteTitle, Value: "AList", Type: conf.TypeString, Group: model.SITE},
-		{Key: conf.Announcement, Value: "### repo\nhttps://github.com/alist-org/alist", Type: conf.TypeText, Group: model.SITE},
+		{Key: conf.Announcement, Value: "### repo\nhttps://github.com/vscodev/alist", Type: conf.TypeText, Group: model.SITE},
 		{Key: "pagination_type", Value: "all", Type: conf.TypeSelect, Options: "all,pagination,load_more,auto_load_more", Group: model.SITE},
 		{Key: "default_page_size", Value: "30", Type: conf.TypeNumber, Group: model.SITE},
 		{Key: conf.AllowIndexed, Value: "false", Type: conf.TypeBool, Group: model.SITE},
@@ -115,7 +115,7 @@ func InitialSettings() []model.SettingItem {
 		{Key: conf.AudioTypes, Value: "mp3,flac,ogg,m4a,wav,opus,wma", Type: conf.TypeText, Group: model.PREVIEW, Flag: model.PRIVATE},
 		{Key: conf.VideoTypes, Value: "mp4,mkv,avi,mov,rmvb,webm,flv,m3u8", Type: conf.TypeText, Group: model.PREVIEW, Flag: model.PRIVATE},
 		{Key: conf.ImageTypes, Value: "jpg,tiff,jpeg,png,gif,bmp,svg,ico,swf,webp", Type: conf.TypeText, Group: model.PREVIEW, Flag: model.PRIVATE},
-		//{Key: conf.OfficeTypes, Value: "doc,docx,xls,xlsx,ppt,pptx", Type: conf.TypeText, Group: model.PREVIEW, Flag: model.PRIVATE},
+		// {Key: conf.OfficeTypes, Value: "doc,docx,xls,xlsx,ppt,pptx", Type: conf.TypeText, Group: model.PREVIEW, Flag: model.PRIVATE},
 		{Key: conf.ProxyTypes, Value: "m3u8,url", Type: conf.TypeText, Group: model.PREVIEW, Flag: model.PRIVATE},
 		{Key: conf.ProxyIgnoreHeaders, Value: "authorization,referer", Type: conf.TypeText, Group: model.PREVIEW, Flag: model.PRIVATE},
 		{Key: "external_previews", Value: `{}`, Type: conf.TypeText, Group: model.PREVIEW},
@@ -134,10 +134,10 @@ func InitialSettings() []model.SettingItem {
 		//		{Key: conf.OfficeViewers, Value: `{
 		//	"Microsoft":"https://view.officeapps.live.com/op/view.aspx?src=$url",
 		//	"Google":"https://docs.google.com/gview?url=$url&embedded=true",
-		//}`, Type: conf.TypeText, Group: model.PREVIEW},
+		// }`, Type: conf.TypeText, Group: model.PREVIEW},
 		//		{Key: conf.PdfViewers, Value: `{
 		//	"pdf.js":"https://alist-org.github.io/pdf.js/web/viewer.html?file=$url"
-		//}`, Type: conf.TypeText, Group: model.PREVIEW},
+		// }`, Type: conf.TypeText, Group: model.PREVIEW},
 		{Key: "audio_cover", Value: "https://jsd.nn.ci/gh/alist-org/logo@main/logo.svg", Type: conf.TypeString, Group: model.PREVIEW},
 		{Key: conf.AudioAutoplay, Value: "true", Type: conf.TypeBool, Group: model.PREVIEW},
 		{Key: conf.VideoAutoplay, Value: "true", Type: conf.TypeBool, Group: model.PREVIEW},

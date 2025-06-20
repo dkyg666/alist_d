@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/alist-org/alist/v3/internal/conf"
-	"github.com/alist-org/alist/v3/internal/net"
 	"github.com/go-resty/resty/v2"
+	"github.com/vscodev/alist/v3/internal/conf"
+	"github.com/vscodev/alist/v3/internal/net"
 )
 
 var (

@@ -6,11 +6,9 @@ import (
 )
 
 var (
-	BuiltAt    string
-	GitAuthor  string
-	GitCommit  string
-	Version    string = "dev"
-	WebVersion string
+	BuiltAt   string
+	GitAuthor string
+	Version   string = "dev"
 )
 
 var (

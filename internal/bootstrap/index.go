@@ -1,8 +1,8 @@
 package bootstrap
 
 import (
-	"github.com/alist-org/alist/v3/internal/search"
 	log "github.com/sirupsen/logrus"
+	"github.com/vscodev/alist/v3/internal/search"
 )
 
 func InitIndex() {

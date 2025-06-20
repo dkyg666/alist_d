@@ -8,15 +8,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/alist-org/alist/v3/internal/db"
-	"github.com/alist-org/alist/v3/internal/driver"
-	"github.com/alist-org/alist/v3/internal/errs"
-	"github.com/alist-org/alist/v3/internal/model"
-	"github.com/alist-org/alist/v3/pkg/generic_sync"
-	"github.com/alist-org/alist/v3/pkg/utils"
 	mapset "github.com/deckarep/golang-set/v2"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
+	"github.com/vscodev/alist/v3/internal/db"
+	"github.com/vscodev/alist/v3/internal/driver"
+	"github.com/vscodev/alist/v3/internal/errs"
+	"github.com/vscodev/alist/v3/internal/model"
+	"github.com/vscodev/alist/v3/pkg/generic_sync"
+	"github.com/vscodev/alist/v3/pkg/utils"
 )
 
 // Although the driver type is stored,

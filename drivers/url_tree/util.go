@@ -7,10 +7,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/alist-org/alist/v3/drivers/base"
-	"github.com/alist-org/alist/v3/internal/errs"
-	"github.com/alist-org/alist/v3/internal/model"
 	log "github.com/sirupsen/logrus"
+	"github.com/vscodev/alist/v3/drivers/base"
+	"github.com/vscodev/alist/v3/internal/errs"
+	"github.com/vscodev/alist/v3/internal/model"
 )
 
 // build tree from text, text structure definition:

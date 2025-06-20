@@ -3,10 +3,10 @@ package fs
 import (
 	"context"
 
-	"github.com/alist-org/alist/v3/internal/errs"
-	"github.com/alist-org/alist/v3/internal/model"
-	"github.com/alist-org/alist/v3/internal/op"
 	"github.com/pkg/errors"
+	"github.com/vscodev/alist/v3/internal/errs"
+	"github.com/vscodev/alist/v3/internal/model"
+	"github.com/vscodev/alist/v3/internal/op"
 )
 
 func makeDir(ctx context.Context, path string, lazyCache ...bool) error {

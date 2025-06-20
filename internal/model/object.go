@@ -3,7 +3,7 @@ package model
 import (
 	"time"
 
-	"github.com/alist-org/alist/v3/pkg/utils"
+	"github.com/vscodev/alist/v3/pkg/utils"
 )
 
 type ObjWrapName struct {

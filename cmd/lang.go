@@ -6,19 +6,18 @@ package cmd
 
 import (
 	"fmt"
-	"io"
 	"os"
 	"reflect"
 	"strings"
 
-	_ "github.com/alist-org/alist/v3/drivers"
-	"github.com/alist-org/alist/v3/internal/bootstrap"
-	"github.com/alist-org/alist/v3/internal/bootstrap/data"
-	"github.com/alist-org/alist/v3/internal/conf"
-	"github.com/alist-org/alist/v3/internal/op"
-	"github.com/alist-org/alist/v3/pkg/utils"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
+	_ "github.com/vscodev/alist/v3/drivers"
+	"github.com/vscodev/alist/v3/internal/bootstrap"
+	"github.com/vscodev/alist/v3/internal/bootstrap/data"
+	"github.com/vscodev/alist/v3/internal/conf"
+	"github.com/vscodev/alist/v3/internal/op"
+	"github.com/vscodev/alist/v3/pkg/utils"
 )
 
 type KV[V any] map[string]V
@@ -39,13 +38,8 @@ func convert(s string) string {
 }
 
 func writeFile(name string, data interface{}) {
-	f, err := os.Open(fmt.Sprintf("../alist-web/src/lang/en/%s.json", name))
-	if err != nil {
-		log.Errorf("failed to open %s.json: %+v", name, err)
-		return
-	}
-	defer f.Close()
-	content, err := io.ReadAll(f)
+	filename := fmt.Sprintf("./web/src/lang/en/%s.json", name)
+	content, err := os.ReadFile(filename)
 	if err != nil {
 		log.Errorf("failed to read %s.json: %+v", name, err)
 		return
@@ -71,7 +65,6 @@ func writeFile(name string, data interface{}) {
 		log.Infof("%s.json no changed, skip", name)
 	} else {
 		log.Infof("%s.json changed, update file", name)
-		//log.Infof("old: %+v\nnew:%+v", oldData, data)
 		utils.WriteJsonToFile(fmt.Sprintf("lang/%s.json", name), newData, true)
 	}
 }
@@ -130,7 +123,6 @@ func generateSettingsJson() {
 		}
 	}
 	writeFile("settings", settingsLang)
-	//utils.WriteJsonToFile("lang/settings.json", settingsLang)
 }
 
 // LangCmd represents the lang command

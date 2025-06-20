@@ -11,12 +11,12 @@ import (
 
 	"maps"
 
-	"github.com/alist-org/alist/v3/internal/model"
-	"github.com/alist-org/alist/v3/internal/net"
-	"github.com/alist-org/alist/v3/internal/stream"
-	"github.com/alist-org/alist/v3/pkg/http_range"
-	"github.com/alist-org/alist/v3/pkg/utils"
 	log "github.com/sirupsen/logrus"
+	"github.com/vscodev/alist/v3/internal/model"
+	"github.com/vscodev/alist/v3/internal/net"
+	"github.com/vscodev/alist/v3/internal/stream"
+	"github.com/vscodev/alist/v3/pkg/http_range"
+	"github.com/vscodev/alist/v3/pkg/utils"
 )
 
 func Proxy(w http.ResponseWriter, r *http.Request, link *model.Link, file model.Obj) error {

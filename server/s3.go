@@ -5,10 +5,10 @@ import (
 	"path"
 	"strings"
 
-	"github.com/alist-org/alist/v3/internal/conf"
-	"github.com/alist-org/alist/v3/server/common"
-	"github.com/alist-org/alist/v3/server/s3"
 	"github.com/gin-gonic/gin"
+	"github.com/vscodev/alist/v3/internal/conf"
+	"github.com/vscodev/alist/v3/server/common"
+	"github.com/vscodev/alist/v3/server/s3"
 )
 
 func S3(g *gin.RouterGroup) {

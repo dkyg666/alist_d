@@ -14,16 +14,16 @@ import (
 	"strings"
 	"time"
 
-	"github.com/alist-org/alist/v3/internal/conf"
-	"github.com/alist-org/alist/v3/internal/driver"
-	"github.com/alist-org/alist/v3/internal/errs"
-	"github.com/alist-org/alist/v3/internal/model"
-	"github.com/alist-org/alist/v3/internal/sign"
-	"github.com/alist-org/alist/v3/pkg/utils"
-	"github.com/alist-org/alist/v3/server/common"
 	"github.com/alist-org/times"
 	cp "github.com/otiai10/copy"
 	log "github.com/sirupsen/logrus"
+	"github.com/vscodev/alist/v3/internal/conf"
+	"github.com/vscodev/alist/v3/internal/driver"
+	"github.com/vscodev/alist/v3/internal/errs"
+	"github.com/vscodev/alist/v3/internal/model"
+	"github.com/vscodev/alist/v3/internal/sign"
+	"github.com/vscodev/alist/v3/pkg/utils"
+	"github.com/vscodev/alist/v3/server/common"
 	_ "golang.org/x/image/webp"
 )
 

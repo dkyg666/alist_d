@@ -18,8 +18,8 @@ import (
 	"strconv"
 	"strings"
 
-	myrand "github.com/alist-org/alist/v3/pkg/utils/random"
 	log "github.com/sirupsen/logrus"
+	myrand "github.com/vscodev/alist/v3/pkg/utils/random"
 )
 
 func random() string {

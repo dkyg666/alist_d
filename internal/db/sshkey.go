@@ -1,8 +1,8 @@
 package db
 
 import (
-	"github.com/alist-org/alist/v3/internal/model"
 	"github.com/pkg/errors"
+	"github.com/vscodev/alist/v3/internal/model"
 )
 
 func GetSSHPublicKeyByUserId(userId uint, pageIndex, pageSize int) (keys []model.SSHPublicKey, count int64, err error) {

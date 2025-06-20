@@ -3,9 +3,9 @@ package message
 import (
 	"time"
 
-	"github.com/alist-org/alist/v3/server/common"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
+	"github.com/vscodev/alist/v3/server/common"
 )
 
 type Http struct {

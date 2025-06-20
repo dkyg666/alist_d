@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/alist-org/alist/v3/cmd/flags"
-	"github.com/alist-org/alist/v3/internal/conf"
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
+	"github.com/vscodev/alist/v3/cmd/flags"
+	"github.com/vscodev/alist/v3/internal/conf"
 )
 
 func hidePrivacy(msg string) string {

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/alist-org/alist/v3/internal/conf"
 	"github.com/gin-gonic/gin"
+	"github.com/vscodev/alist/v3/internal/conf"
 )
 
 func ForceHttps(c *gin.Context) {

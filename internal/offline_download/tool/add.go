@@ -6,18 +6,18 @@ import (
 	stdpath "path"
 	"path/filepath"
 
-	_115 "github.com/alist-org/alist/v3/drivers/115"
-	"github.com/alist-org/alist/v3/drivers/pikpak"
-	"github.com/alist-org/alist/v3/drivers/thunder"
-	"github.com/alist-org/alist/v3/internal/conf"
-	"github.com/alist-org/alist/v3/internal/errs"
-	"github.com/alist-org/alist/v3/internal/fs"
-	"github.com/alist-org/alist/v3/internal/model"
-	"github.com/alist-org/alist/v3/internal/op"
-	"github.com/alist-org/alist/v3/internal/setting"
-	"github.com/alist-org/alist/v3/internal/task"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
+	_115 "github.com/vscodev/alist/v3/drivers/115"
+	"github.com/vscodev/alist/v3/drivers/pikpak"
+	"github.com/vscodev/alist/v3/drivers/thunder"
+	"github.com/vscodev/alist/v3/internal/conf"
+	"github.com/vscodev/alist/v3/internal/errs"
+	"github.com/vscodev/alist/v3/internal/fs"
+	"github.com/vscodev/alist/v3/internal/model"
+	"github.com/vscodev/alist/v3/internal/op"
+	"github.com/vscodev/alist/v3/internal/setting"
+	"github.com/vscodev/alist/v3/internal/task"
 )
 
 type DeletePolicy string

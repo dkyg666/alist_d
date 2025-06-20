@@ -4,19 +4,18 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/alist-org/alist/v3/cmd/flags"
-	_ "github.com/alist-org/alist/v3/drivers"
-	_ "github.com/alist-org/alist/v3/internal/archive"
-	_ "github.com/alist-org/alist/v3/internal/offline_download"
 	"github.com/spf13/cobra"
+	"github.com/vscodev/alist/v3/cmd/flags"
+	_ "github.com/vscodev/alist/v3/drivers"
+	_ "github.com/vscodev/alist/v3/internal/archive"
+	_ "github.com/vscodev/alist/v3/internal/offline_download"
 )
 
 var RootCmd = &cobra.Command{
 	Use:   "alist",
 	Short: "A file list program that supports multiple storage.",
 	Long: `A file list program that supports multiple storage,
-built with love by Xhofe and friends in Go/Solid.js.
-Complete documentation is available at https://alist.nn.ci/`,
+built with love by Xhofe and friends in Go/Solid.js.`,
 }
 
 func Execute() {

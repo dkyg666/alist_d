@@ -1,12 +1,12 @@
 package bootstrap
 
 import (
-	"github.com/alist-org/alist/v3/internal/conf"
-	"github.com/alist-org/alist/v3/internal/db"
-	"github.com/alist-org/alist/v3/internal/fs"
-	"github.com/alist-org/alist/v3/internal/offline_download/tool"
-	"github.com/alist-org/alist/v3/internal/op"
-	"github.com/alist-org/alist/v3/internal/setting"
+	"github.com/vscodev/alist/v3/internal/conf"
+	"github.com/vscodev/alist/v3/internal/db"
+	"github.com/vscodev/alist/v3/internal/fs"
+	"github.com/vscodev/alist/v3/internal/offline_download/tool"
+	"github.com/vscodev/alist/v3/internal/op"
+	"github.com/vscodev/alist/v3/internal/setting"
 	"github.com/xhofe/tache"
 )
 

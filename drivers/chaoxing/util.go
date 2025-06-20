@@ -11,8 +11,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/alist-org/alist/v3/drivers/base"
 	"github.com/go-resty/resty/v2"
+	"github.com/vscodev/alist/v3/drivers/base"
 )
 
 func (d *ChaoXing) requestDownload(pathname string, method string, callback base.ReqCallback, resp interface{}) ([]byte, error) {

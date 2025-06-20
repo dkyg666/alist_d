@@ -12,8 +12,8 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/alist-org/alist/v3/pkg/http_range"
 	"github.com/sirupsen/logrus"
+	"github.com/vscodev/alist/v3/pkg/http_range"
 	"golang.org/x/exp/slices"
 )
 

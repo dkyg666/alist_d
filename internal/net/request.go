@@ -11,11 +11,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/alist-org/alist/v3/pkg/utils"
+	"github.com/vscodev/alist/v3/pkg/utils"
 
-	"github.com/alist-org/alist/v3/pkg/http_range"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	log "github.com/sirupsen/logrus"
+	"github.com/vscodev/alist/v3/pkg/http_range"
 )
 
 // DefaultDownloadPartSize is the default range of bytes to get at a time when

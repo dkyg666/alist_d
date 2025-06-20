@@ -12,8 +12,8 @@ import (
 	"io"
 	"iter"
 
-	"github.com/alist-org/alist/v3/internal/errs"
 	log "github.com/sirupsen/logrus"
+	"github.com/vscodev/alist/v3/internal/errs"
 )
 
 func GetMD5EncodeStr(data string) string {

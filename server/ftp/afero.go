@@ -4,10 +4,10 @@ import (
 	"context"
 	"errors"
 	ftpserver "github.com/KirCute/ftpserverlib-pasvportmap"
-	"github.com/alist-org/alist/v3/internal/errs"
-	"github.com/alist-org/alist/v3/internal/fs"
-	"github.com/alist-org/alist/v3/internal/model"
 	"github.com/spf13/afero"
+	"github.com/vscodev/alist/v3/internal/errs"
+	"github.com/vscodev/alist/v3/internal/fs"
+	"github.com/vscodev/alist/v3/internal/model"
 	"os"
 	"time"
 )

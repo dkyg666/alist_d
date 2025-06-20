@@ -5,8 +5,8 @@ import (
 	stdpath "path"
 	"strings"
 
-	"github.com/alist-org/alist/v3/internal/model"
 	log "github.com/sirupsen/logrus"
+	"github.com/vscodev/alist/v3/internal/model"
 )
 
 func (d *SFTP) fileToObj(f os.FileInfo, dir string) (model.Obj, error) {

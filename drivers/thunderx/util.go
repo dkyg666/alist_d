@@ -11,9 +11,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/alist-org/alist/v3/drivers/base"
-	"github.com/alist-org/alist/v3/pkg/utils"
 	"github.com/go-resty/resty/v2"
+	"github.com/vscodev/alist/v3/drivers/base"
+	"github.com/vscodev/alist/v3/pkg/utils"
 )
 
 const (

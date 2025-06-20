@@ -10,10 +10,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/alist-org/alist/v3/pkg/utils"
+	"github.com/vscodev/alist/v3/pkg/utils"
 
-	"github.com/alist-org/alist/v3/pkg/http_range"
 	log "github.com/sirupsen/logrus"
+	"github.com/vscodev/alist/v3/pkg/http_range"
 )
 
 // scanETag determines if a syntactically valid ETag is present at s. If so,

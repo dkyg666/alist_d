@@ -1,11 +1,11 @@
 package mega
 
 import (
-	"github.com/alist-org/alist/v3/pkg/utils"
+	"github.com/vscodev/alist/v3/pkg/utils"
 	"time"
 
-	"github.com/alist-org/alist/v3/internal/model"
 	"github.com/t3rm1n4l/go-mega"
+	"github.com/vscodev/alist/v3/internal/model"
 )
 
 type MegaNode struct {

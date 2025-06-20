@@ -1,13 +1,13 @@
 package qbit
 
 import (
-	"github.com/alist-org/alist/v3/internal/conf"
-	"github.com/alist-org/alist/v3/internal/errs"
-	"github.com/alist-org/alist/v3/internal/model"
-	"github.com/alist-org/alist/v3/internal/offline_download/tool"
-	"github.com/alist-org/alist/v3/internal/setting"
-	"github.com/alist-org/alist/v3/pkg/qbittorrent"
 	"github.com/pkg/errors"
+	"github.com/vscodev/alist/v3/internal/conf"
+	"github.com/vscodev/alist/v3/internal/errs"
+	"github.com/vscodev/alist/v3/internal/model"
+	"github.com/vscodev/alist/v3/internal/offline_download/tool"
+	"github.com/vscodev/alist/v3/internal/setting"
+	"github.com/vscodev/alist/v3/pkg/qbittorrent"
 )
 
 type QBittorrent struct {

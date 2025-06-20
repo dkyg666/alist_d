@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/alist-org/alist/v3/pkg/utils"
 	"github.com/pkg/errors"
+	"github.com/vscodev/alist/v3/pkg/utils"
 )
 
 func TestTask_Manager(t *testing.T) {

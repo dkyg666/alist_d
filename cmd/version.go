@@ -8,8 +8,8 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/alist-org/alist/v3/internal/conf"
 	"github.com/spf13/cobra"
+	"github.com/vscodev/alist/v3/internal/conf"
 )
 
 // VersionCmd represents the version command
@@ -22,10 +22,8 @@ var VersionCmd = &cobra.Command{
 		fmt.Printf(`Built At: %s
 Go Version: %s
 Author: %s
-Commit ID: %s
 Version: %s
-WebVersion: %s
-`, conf.BuiltAt, goVersion, conf.GitAuthor, conf.GitCommit, conf.Version, conf.WebVersion)
+`, conf.BuiltAt, goVersion, conf.GitAuthor, conf.Version)
 		os.Exit(0)
 	},
 }

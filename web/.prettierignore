@@ -1,0 +1,7 @@
+dist/
+pnpm-lock.yaml
+.prettierignore
+.gitignore
+*.ttf
+*.otf
+*.woff2

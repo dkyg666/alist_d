@@ -3,9 +3,9 @@ package LenovoNasShare
 import (
 	"errors"
 
-	"github.com/alist-org/alist/v3/drivers/base"
-	"github.com/alist-org/alist/v3/pkg/utils"
 	jsoniter "github.com/json-iterator/go"
+	"github.com/vscodev/alist/v3/drivers/base"
+	"github.com/vscodev/alist/v3/pkg/utils"
 )
 
 func (d *LenovoNasShare) request(url string, method string, callback base.ReqCallback, resp interface{}) ([]byte, error) {

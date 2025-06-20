@@ -5,10 +5,10 @@ import (
 	stdpath "path"
 	"time"
 
-	"github.com/alist-org/alist/v3/internal/model"
-	"github.com/alist-org/alist/v3/internal/op"
-	"github.com/alist-org/alist/v3/pkg/utils"
 	"github.com/pkg/errors"
+	"github.com/vscodev/alist/v3/internal/model"
+	"github.com/vscodev/alist/v3/internal/op"
+	"github.com/vscodev/alist/v3/pkg/utils"
 )
 
 func get(ctx context.Context, path string) (model.Obj, error) {

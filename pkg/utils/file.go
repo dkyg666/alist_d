@@ -9,10 +9,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/alist-org/alist/v3/internal/errs"
+	"github.com/vscodev/alist/v3/internal/errs"
 
-	"github.com/alist-org/alist/v3/internal/conf"
 	log "github.com/sirupsen/logrus"
+	"github.com/vscodev/alist/v3/internal/conf"
 )
 
 // CopyFile File copies a single file from src to dst

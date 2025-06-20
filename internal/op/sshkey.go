@@ -1,9 +1,9 @@
 package op
 
 import (
-	"github.com/alist-org/alist/v3/internal/db"
-	"github.com/alist-org/alist/v3/internal/model"
 	"github.com/pkg/errors"
+	"github.com/vscodev/alist/v3/internal/db"
+	"github.com/vscodev/alist/v3/internal/model"
 	"golang.org/x/crypto/ssh"
 	"time"
 )

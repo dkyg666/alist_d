@@ -2,11 +2,11 @@ package rardecode
 
 import (
 	"fmt"
-	"github.com/alist-org/alist/v3/internal/archive/tool"
-	"github.com/alist-org/alist/v3/internal/errs"
-	"github.com/alist-org/alist/v3/internal/model"
-	"github.com/alist-org/alist/v3/internal/stream"
 	"github.com/nwaples/rardecode/v2"
+	"github.com/vscodev/alist/v3/internal/archive/tool"
+	"github.com/vscodev/alist/v3/internal/errs"
+	"github.com/vscodev/alist/v3/internal/model"
+	"github.com/vscodev/alist/v3/internal/stream"
 	"io"
 	"io/fs"
 	"os"

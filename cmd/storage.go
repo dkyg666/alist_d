@@ -7,12 +7,12 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/alist-org/alist/v3/internal/db"
-	"github.com/alist-org/alist/v3/pkg/utils"
 	"github.com/charmbracelet/bubbles/table"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 	"github.com/spf13/cobra"
+	"github.com/vscodev/alist/v3/internal/db"
+	"github.com/vscodev/alist/v3/pkg/utils"
 )
 
 // storageCmd represents the storage command

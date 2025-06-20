@@ -1,4 +1,4 @@
-name: build
+name: Build
 
 on:
   push:
@@ -6,56 +6,90 @@ on:
   pull_request:
     branches: [ 'main' ]
 
+env:
+  ZIG_VERSION: 0.14.0
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
-    strategy:
-      matrix:
-        platform: [ubuntu-latest]
-        target: 
-          - darwin-amd64
-          - darwin-arm64
-          - windows-amd64
-          - linux-arm64-musl
-          - linux-amd64-musl
-          - windows-arm64
-          - android-arm64
     name: Build
-    runs-on: ${{ matrix.platform }}
-    steps:
+    runs-on: ${{ matrix.os }}
 
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: windows
+            os: windows-latest
+            arch: amd64
+          - platform: windows
+            os: windows-11-arm
+            arch: arm64
+          - platform: linux
+            os: ubuntu-latest
+            arch: amd64
+          - platform: linux
+            os: ubuntu-24.04-arm
+            arch: arm64
+          - platform: macos
+            os: macos-13
+            arch: amd64
+          - platform: macos
+            os: macos-latest
+            arch: arm64
+
+    steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - uses: benjlevesque/short-sha@v3.0
-        id: short-sha
-
-      - name: Setup Go
+      - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.22'
+          go-version-file: 'go.mod'
+          check-latest: true
 
-      - name: Setup web
-        run: bash build.sh dev web
+      - name: Install Zig
+        if: matrix.os == 'windows-11-arm'
+        run: |
+          Invoke-WebRequest -Uri 'https://ziglang.org/download/${{ env.ZIG_VERSION }}/zig-windows-aarch64-${{ env.ZIG_VERSION }}.zip' -OutFile "$Env:TEMP\zig.zip"
+          Expand-Archive -Path "$Env:TEMP\zig.zip" -DestinationPath $Env:LOCALAPPDATA
+          Add-Content $env:GITHUB_PATH "$Env:LOCALAPPDATA\zig-windows-aarch64-${{ env.ZIG_VERSION }}"
+          Add-Content $env:GITHUB_ENV "CC=zig cc -target aarch64-windows-gnu"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Build frontend
+        shell: bash
+        run: |
+          pnpm install
+          pnpm build
+          cp -a dist/. $GITHUB_WORKSPACE/public/dist/
+        working-directory: ./web
 
       - name: Build
-        uses: go-cross/cgo-actions@v1
-        with:
-          targets: ${{ matrix.target }}
-          musl-target-format: $os-$musl-$arch
-          out-dir: build
-          x-flags: |
-            github.com/alist-org/alist/v3/internal/conf.BuiltAt=$built_at
-            github.com/alist-org/alist/v3/internal/conf.GitAuthor=Xhofe
-            github.com/alist-org/alist/v3/internal/conf.GitCommit=$git_commit
-            github.com/alist-org/alist/v3/internal/conf.Version=$tag
-            github.com/alist-org/alist/v3/internal/conf.WebVersion=dev
+        shell: bash
+        run: |
+          go mod download
+          bash build.sh
 
-      - name: Upload artifact
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: alist_${{ env.SHA }}_${{ matrix.target }}
-          path: build/*
+          name: alist-${{ matrix.platform }}-${{ matrix.arch }}
+          path: |
+            alist
+            alist.exe
+          retention-days: 1

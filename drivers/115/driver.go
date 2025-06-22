@@ -128,7 +128,7 @@ func (d *Pan115) Rename(ctx context.Context, srcObj model.Obj, newName string) (
 	if err := d.client.Rename(srcObj.GetID(), newName); err != nil {
 		return nil, err
 	}
-	f, err := d.getNewFile((srcObj.GetID()))
+	f, err := d.getNewFile(srcObj.GetID())
 	if err != nil {
 		return nil, nil
 	}
@@ -165,9 +165,9 @@ func (d *Pan115) Put(ctx context.Context, dstDir model.Obj, stream model.FileStr
 	if stream.GetSize() > d.client.UploadMetaInfo.SizeLimit {
 		return nil, driver115.ErrUploadTooLarge
 	}
-	//if digest, err = d.client.GetDigestResult(stream); err != nil {
+	// if digest, err = d.client.GetDigestResult(stream); err != nil {
 	//	return err
-	//}
+	// }
 
 	const PreHashSize int64 = 128 * utils.KB
 	hashSize := PreHashSize

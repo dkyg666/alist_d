@@ -14,7 +14,10 @@ import (
 // do others that not defined in Driver interface
 
 func (d *YandexDisk) refreshToken() error {
-	u := "https://oauth.yandex.com/token"
+	url := d.OauthTokenURL
+	if d.ClientID != "" && d.ClientSecret != "" {
+		url = "https://oauth.yandex.com/token"
+	}
 	var resp base.TokenResp
 	var e TokenErrResp
 	_, err := base.RestyClient.R().SetResult(&resp).SetError(&e).SetFormData(map[string]string{
@@ -22,7 +25,7 @@ func (d *YandexDisk) refreshToken() error {
 		"refresh_token": d.RefreshToken,
 		"client_id":     d.ClientID,
 		"client_secret": d.ClientSecret,
-	}).Post(u)
+	}).Post(url)
 	if err != nil {
 		return err
 	}
@@ -50,7 +53,7 @@ func (d *YandexDisk) request(pathname string, method string, callback base.ReqCa
 	if err != nil {
 		return nil, err
 	}
-	//log.Debug(res.String())
+	// log.Debug(res.String())
 	if e.Error != "" {
 		if e.Error == "UnauthorizedError" {
 			err = d.refreshToken()

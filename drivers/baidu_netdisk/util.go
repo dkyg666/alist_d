@@ -31,15 +31,30 @@ func (d *BaiduNetdisk) refreshToken() error {
 }
 
 func (d *BaiduNetdisk) _refreshToken() error {
-	u := "https://openapi.baidu.com/oauth/2.0/token"
-	var resp base.TokenResp
-	var e TokenErrResp
-	_, err := base.RestyClient.R().SetResult(&resp).SetError(&e).SetQueryParams(map[string]string{
+	var (
+		resp base.TokenResp
+		e    TokenErrResp
+		err  error
+	)
+	data := map[string]string{
 		"grant_type":    "refresh_token",
 		"refresh_token": d.RefreshToken,
 		"client_id":     d.ClientID,
 		"client_secret": d.ClientSecret,
-	}).Get(u)
+	}
+	if d.ClientID != "" && d.ClientSecret != "" {
+		_, err = base.RestyClient.R().
+			SetResult(&resp).
+			SetError(&e).
+			SetQueryParams(data).
+			Get("https://openapi.baidu.com/oauth/2.0/token")
+	} else {
+		_, err = base.RestyClient.R().
+			SetResult(&resp).
+			SetError(&e).
+			SetFormData(data).
+			Post(d.OauthTokenURL)
+	}
 	if err != nil {
 		return err
 	}
@@ -167,9 +182,9 @@ func (d *BaiduNetdisk) linkOfficial(file model.Obj, _ model.LinkArgs) (*model.Li
 	if err != nil {
 		return nil, err
 	}
-	//if res.StatusCode() == 302 {
+	// if res.StatusCode() == 302 {
 	u = res.Header().Get("location")
-	//}
+	// }
 
 	return &model.Link{
 		URL: u,

@@ -72,16 +72,27 @@ func (d *Onedrive) refreshToken() error {
 }
 
 func (d *Onedrive) _refreshToken() error {
-	url := d.GetMetaUrl(true, "") + "/common/oauth2/v2.0/token"
-	var resp base.TokenResp
-	var e TokenErr
-	_, err := base.RestyClient.R().SetResult(&resp).SetError(&e).SetFormData(map[string]string{
+	var url string
+	data := map[string]string{
 		"grant_type":    "refresh_token",
 		"client_id":     d.ClientID,
 		"client_secret": d.ClientSecret,
-		"redirect_uri":  d.RedirectUri,
 		"refresh_token": d.RefreshToken,
-	}).Post(url)
+	}
+	if d.ClientID != "" && d.ClientSecret != "" {
+		url = d.GetMetaUrl(true, "") + "/common/oauth2/v2.0/token"
+	} else {
+		url = d.OauthTokenURL
+		data["region"] = d.Region
+	}
+
+	var resp base.TokenResp
+	var e TokenErr
+	_, err := base.RestyClient.R().
+		SetResult(&resp).
+		SetError(&e).
+		SetFormData(data).
+		Post(url)
 	if err != nil {
 		return err
 	}

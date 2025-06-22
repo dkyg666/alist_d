@@ -10,8 +10,9 @@ type Addition struct {
 	RefreshToken   string `json:"refresh_token" required:"true"`
 	OrderBy        string `json:"order_by" type:"string" help:"such as: folder,name,modifiedTime"`
 	OrderDirection string `json:"order_direction" type:"select" options:"asc,desc"`
-	ClientID       string `json:"client_id" required:"true" default:"202264815644.apps.googleusercontent.com"`
-	ClientSecret   string `json:"client_secret" required:"true" default:"X4Z3ca8xfWDb1Voo-F9a7ZxJ"`
+	OauthTokenURL  string `json:"oauth_token_url"`
+	ClientID       string `json:"client_id"`
+	ClientSecret   string `json:"client_secret"`
 	ChunkSize      int64  `json:"chunk_size" type:"number" default:"5" help:"chunk size while uploading (unit: MB)"`
 }
 

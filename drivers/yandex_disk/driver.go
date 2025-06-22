@@ -2,6 +2,7 @@ package yandex_disk
 
 import (
 	"context"
+	"errors"
 	"net/http"
 	"path"
 	"strconv"
@@ -28,6 +29,12 @@ func (d *YandexDisk) GetAddition() driver.Additional {
 }
 
 func (d *YandexDisk) Init(ctx context.Context) error {
+	if d.OauthTokenURL == "" {
+		if d.ClientID == "" || d.ClientSecret == "" {
+			return errors.New("missing oauth client or token url")
+		}
+	}
+
 	return d.refreshToken()
 }
 

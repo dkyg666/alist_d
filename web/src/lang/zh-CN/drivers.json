@@ -189,9 +189,7 @@
   },
   "AliyundriveOpen": {
     "client_id": "客户端ID",
-    "client_id-tips": "如果你没有，请留空",
     "client_secret": "客户端密钥",
-    "client_secret-tips": "如果你没有，请留空",
     "drive_type": "云盘类型",
     "drive_types": {
       "backup": "备份盘",
@@ -269,6 +267,7 @@
       "official": "官方"
     },
     "low_bandwith_upload_mode": "低带宽上传模式",
+    "oauth_token_url": "Oauth令牌链接",
     "only_list_video_file": "仅列出视频文件",
     "order_by": "排序",
     "order_bys": {
@@ -418,9 +417,7 @@
   },
   "Dropbox": {
     "client_id": "客户端ID",
-    "client_id-tips": "如果你没有，请留空",
     "client_secret": "客户端密钥",
-    "client_secret-tips": "如果你没有，请留空",
     "oauth_token_url": "Oauth令牌链接",
     "refresh_token": "刷新令牌",
     "root_folder_path": "根文件夹路径"
@@ -498,6 +495,7 @@
     "chunk_size-tips": "上传分块大小 (单位: MB)",
     "client_id": "客户端ID",
     "client_secret": "客户端密钥",
+    "oauth_token_url": "Oauth令牌链接",
     "order_by": "排序",
     "order_by-tips": "例如: folder,name,modifiedTime",
     "order_direction": "排序方式",
@@ -662,8 +660,8 @@
     "client_secret": "客户端密钥",
     "custom_host": "自定义HOST",
     "custom_host-tips": "自定义加速下载链接",
+    "oauth_token_url": "Oauth令牌链接",
     "is_sharepoint": "是否Sharepoint",
-    "redirect_uri": "重定向 Uri",
     "refresh_token": "刷新令牌",
     "region": "地区",
     "regions": {
@@ -1104,6 +1102,7 @@
   "YandexDisk": {
     "client_id": "客户端ID",
     "client_secret": "客户端密钥",
+    "oauth_token_url": "Oauth令牌链接",
     "order_by": "排序",
     "order_bys": {
       "created": "创建时间",

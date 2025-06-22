@@ -2,7 +2,7 @@ package dropbox
 
 import (
 	"context"
-	"fmt"
+	"errors"
 	"io"
 	"math"
 	"net/http"
@@ -31,23 +31,15 @@ func (d *Dropbox) GetAddition() driver.Additional {
 	return &d.Addition
 }
 
-func (d *Dropbox) Init(ctx context.Context) error {
-	query := "foo"
-	res, err := d.request("/2/check/user", http.MethodPost, func(req *resty.Request) {
-		req.SetBody(base.Json{
-			"query": query,
-		})
-	})
-	if err != nil {
-		return err
+func (d *Dropbox) Init(ctx context.Context) (err error) {
+	if d.OauthTokenURL == "" {
+		if d.ClientID == "" || d.ClientSecret == "" {
+			return errors.New("missing oauth client or token url")
+		}
 	}
-	result := utils.Json.Get(res, "result").ToString()
-	if result != query {
-		return fmt.Errorf("failed to check user: %s", string(res))
-	}
-	d.RootNamespaceId, err = d.GetRootNamespaceId(ctx)
 
-	return err
+	d.RootNamespaceId, err = d.GetRootNamespaceId(ctx)
+	return
 }
 
 func (d *Dropbox) GetRootNamespaceId(ctx context.Context) (string, error) {

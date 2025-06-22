@@ -139,7 +139,7 @@
       "stream": "Stream"
     },
     "upload_thread": "Upload thread",
-    "upload_thread-tips": "1<=thread<=32",
+    "upload_thread-tips": "1\u003c=thread\u003c=32",
     "username": "Username",
     "validate_code": "Validate code"
   },
@@ -189,9 +189,7 @@
   },
   "AliyundriveOpen": {
     "client_id": "Client id",
-    "client_id-tips": "Keep it empty if you don't have one",
     "client_secret": "Client secret",
-    "client_secret-tips": "Keep it empty if you don't have one",
     "drive_type": "Drive type",
     "drive_types": {
       "backup": "Backup",
@@ -269,6 +267,7 @@
       "official": "Official"
     },
     "low_bandwith_upload_mode": "Low bandwith upload mode",
+    "oauth_token_url": "Oauth token url",
     "only_list_video_file": "Only list video file",
     "order_by": "Order by",
     "order_bys": {
@@ -285,7 +284,7 @@
     "root_folder_path": "Root folder path",
     "upload_api": "Upload api",
     "upload_thread": "Upload thread",
-    "upload_thread-tips": "1<=thread<=32"
+    "upload_thread-tips": "1\u003c=thread\u003c=32"
   },
   "BaiduPhoto": {
     "album_id": "Album id",
@@ -298,7 +297,7 @@
       "root_only_file": "Root only file"
     },
     "upload_thread": "Upload thread",
-    "upload_thread-tips": "1<=thread<=32"
+    "upload_thread-tips": "1\u003c=thread\u003c=32"
   },
   "BaiduShare": {
     "BDUSS": "BDUSS",
@@ -418,9 +417,7 @@
   },
   "Dropbox": {
     "client_id": "Client id",
-    "client_id-tips": "Keep it empty if you don't have one",
     "client_secret": "Client secret",
-    "client_secret-tips": "Keep it empty if you don't have one",
     "oauth_token_url": "Oauth token url",
     "refresh_token": "Refresh token",
     "root_folder_path": "Root folder path"
@@ -498,6 +495,7 @@
     "chunk_size-tips": "chunk size while uploading (unit: MB)",
     "client_id": "Client id",
     "client_secret": "Client secret",
+    "oauth_token_url": "Oauth token url",
     "order_by": "Order by",
     "order_by-tips": "such as: folder,name,modifiedTime",
     "order_direction": "Order direction",
@@ -523,7 +521,7 @@
     "refresh_token-tips": "login type is refresh_token,this is required",
     "root_folder_path": "Root folder path",
     "upload_thread": "Upload thread",
-    "upload_thread-tips": "1 <= thread <= 32"
+    "upload_thread-tips": "1 \u003c= thread \u003c= 32"
   },
   "ILanZou": {
     "ip": "Ip",
@@ -649,7 +647,7 @@
     "sms_code": "Sms code",
     "sms_code-tips": "input 'send' send sms ",
     "upload_thread": "Upload thread",
-    "upload_thread-tips": "1<=thread<=32"
+    "upload_thread-tips": "1\u003c=thread\u003c=32"
   },
   "NeteaseMusic": {
     "cookie": "Cookie",
@@ -663,7 +661,7 @@
     "custom_host": "Custom host",
     "custom_host-tips": "Custom host for onedrive download link",
     "is_sharepoint": "Is sharepoint",
-    "redirect_uri": "Redirect uri",
+    "oauth_token_url": "Oauth token url",
     "refresh_token": "Refresh token",
     "region": "Region",
     "regions": {
@@ -1083,7 +1081,7 @@
     },
     "root_folder_id": "Root folder id",
     "upload_thread": "Upload thread",
-    "upload_thread-tips": "4<=thread<=32"
+    "upload_thread-tips": "4\u003c=thread\u003c=32"
   },
   "WoPan": {
     "access_token": "Access token",
@@ -1104,6 +1102,7 @@
   "YandexDisk": {
     "client_id": "Client id",
     "client_secret": "Client secret",
+    "oauth_token_url": "Oauth token url",
     "order_by": "Order by",
     "order_bys": {
       "created": "Created",

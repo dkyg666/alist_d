@@ -2,6 +2,7 @@ package google_drive
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"net/http"
 	"strconv"
@@ -31,6 +32,12 @@ func (d *GoogleDrive) GetAddition() driver.Additional {
 }
 
 func (d *GoogleDrive) Init(ctx context.Context) error {
+	if d.OauthTokenURL == "" {
+		if d.ClientID == "" || d.ClientSecret == "" {
+			return errors.New("missing oauth client or token url")
+		}
+	}
+
 	if d.ChunkSize == 0 {
 		d.ChunkSize = 5
 	}

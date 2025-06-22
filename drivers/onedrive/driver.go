@@ -2,6 +2,7 @@ package onedrive
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -33,6 +34,12 @@ func (d *Onedrive) GetAddition() driver.Additional {
 }
 
 func (d *Onedrive) Init(ctx context.Context) error {
+	if d.OauthTokenURL == "" {
+		if d.ClientID == "" || d.ClientSecret == "" {
+			return errors.New("missing oauth client or token url")
+		}
+	}
+
 	if d.ChunkSize < 1 {
 		d.ChunkSize = 5
 	}

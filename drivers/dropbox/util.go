@@ -15,7 +15,11 @@ import (
 )
 
 func (d *Dropbox) refreshToken() error {
-	url := d.base + "/oauth2/token"
+	url := d.OauthTokenURL
+	if d.ClientID != "" && d.ClientSecret != "" {
+		url = d.base + "/oauth2/token"
+	}
+
 	if utils.SliceContains([]string{"", DefaultClientID}, d.ClientID) {
 		url = d.OauthTokenURL
 	}

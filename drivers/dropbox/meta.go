@@ -5,10 +5,6 @@ import (
 	"github.com/vscodev/alist/v3/internal/op"
 )
 
-const (
-	DefaultClientID = "76lrwrklhdn1icb"
-)
-
 type Addition struct {
 	RefreshToken string `json:"refresh_token" required:"true"`
 	driver.RootPath

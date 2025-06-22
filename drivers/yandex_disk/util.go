@@ -18,14 +18,19 @@ func (d *YandexDisk) refreshToken() error {
 	if d.ClientID != "" && d.ClientSecret != "" {
 		url = "https://oauth.yandex.com/token"
 	}
+
 	var resp base.TokenResp
 	var e TokenErrResp
-	_, err := base.RestyClient.R().SetResult(&resp).SetError(&e).SetFormData(map[string]string{
-		"grant_type":    "refresh_token",
-		"refresh_token": d.RefreshToken,
-		"client_id":     d.ClientID,
-		"client_secret": d.ClientSecret,
-	}).Post(url)
+	_, err := base.RestyClient.R().
+		SetResult(&resp).
+		SetError(&e).
+		SetFormData(map[string]string{
+			"grant_type":    "refresh_token",
+			"refresh_token": d.RefreshToken,
+			"client_id":     d.ClientID,
+			"client_secret": d.ClientSecret,
+		}).
+		Post(url)
 	if err != nil {
 		return err
 	}

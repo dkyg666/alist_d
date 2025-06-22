@@ -52,7 +52,6 @@ import (
 	_ "github.com/vscodev/alist/v3/drivers/pikpak_share"
 	_ "github.com/vscodev/alist/v3/drivers/quark_uc"
 	_ "github.com/vscodev/alist/v3/drivers/quark_uc_tv"
-	_ "github.com/vscodev/alist/v3/drivers/quqi"
 	_ "github.com/vscodev/alist/v3/drivers/s3"
 	_ "github.com/vscodev/alist/v3/drivers/seafile"
 	_ "github.com/vscodev/alist/v3/drivers/sftp"

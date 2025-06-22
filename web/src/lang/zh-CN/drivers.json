@@ -746,15 +746,6 @@
     "refresh_token": "刷新令牌",
     "root_folder_id": "根文件夹ID"
   },
-  "Quqi": {
-    "cdn": "CDN",
-    "cdn-tips": "如果您启用此选项，下载速度可以提高，但将会有一些性能损失",
-    "cookie": "Cookie",
-    "cookie-tips": "Cookie 可以同时用于多个客户端",
-    "password": "密码",
-    "phone": "手机号码",
-    "root_folder_id": "根文件夹ID"
-  },
   "S3": {
     "access_key_id": "访问密钥 Id",
     "add_filename_to_disposition": "添加filename到disposition",
@@ -1180,7 +1171,6 @@
     "PikPakShare": {},
     "Quark": {},
     "QuarkTV": {},
-    "Quqi": {},
     "S3": {},
     "SFTP": {},
     "SMB": {},
@@ -1260,7 +1250,6 @@
     "PikPakShare": "PikPak分享",
     "Quark": "夸克",
     "QuarkTV": "Quark TV",
-    "Quqi": "曲奇云盘",
     "S3": "对象存储",
     "SFTP": "SFTP",
     "SMB": "SMB",

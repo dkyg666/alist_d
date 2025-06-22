@@ -38,6 +38,12 @@ func (d *AliyundriveOpen) GetAddition() driver.Additional {
 }
 
 func (d *AliyundriveOpen) Init(ctx context.Context) error {
+	if d.OauthTokenURL == "" {
+		if d.ClientID == "" || d.ClientSecret == "" {
+			return errors.New("missing oauth client or token url")
+		}
+	}
+
 	if d.LIVPDownloadFormat == "" {
 		d.LIVPDownloadFormat = "jpeg"
 	}
@@ -174,7 +180,7 @@ func (d *AliyundriveOpen) Move(ctx context.Context, srcObj, dstDir model.Obj) (m
 			"file_id":           srcObj.GetID(),
 			"to_parent_file_id": dstDir.GetID(),
 			"check_name_mode":   "ignore", // optional:ignore,auto_rename,refuse
-			//"new_name":          "newName", // The new name to use when a file of the same name exists
+			// "new_name":          "newName", // The new name to use when a file of the same name exists
 		}).SetResult(&resp)
 	})
 	if err != nil {

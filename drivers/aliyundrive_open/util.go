@@ -20,11 +20,11 @@ import (
 // do others that not defined in Driver interface
 
 func (d *AliyundriveOpen) _refreshToken() (string, string, error) {
-	url := API_URL + "/oauth/access_token"
-	if d.OauthTokenURL != "" && d.ClientID == "" {
-		url = d.OauthTokenURL
+	url := d.OauthTokenURL
+	if d.ClientID != "" && d.ClientSecret != "" {
+		url = API_URL + "/oauth/access_token"
 	}
-	//var resp base.TokenResp
+	// var resp base.TokenResp
 	var e ErrResp
 	res, err := base.RestyClient.R().
 		//ForceContentType("application/json").
@@ -34,7 +34,7 @@ func (d *AliyundriveOpen) _refreshToken() (string, string, error) {
 			"grant_type":    "refresh_token",
 			"refresh_token": d.RefreshToken,
 		}).
-		//SetResult(&resp).
+		// SetResult(&resp).
 		SetError(&e).
 		Post(url)
 	if err != nil {
@@ -159,11 +159,11 @@ func (d *AliyundriveOpen) getFiles(ctx context.Context, fileId string) ([]File, 
 			"order_by":        d.OrderBy,
 			"order_direction": d.OrderDirection,
 			"parent_file_id":  fileId,
-			//"category":              "",
-			//"type":                  "",
-			//"video_thumbnail_time":  120000,
-			//"video_thumbnail_width": 480,
-			//"image_thumbnail_width": 480,
+			// "category":              "",
+			// "type":                  "",
+			// "video_thumbnail_time":  120000,
+			// "video_thumbnail_width": 480,
+			// "image_thumbnail_width": 480,
 		}
 		resp, err := d.limitList(ctx, data)
 		if err != nil {

@@ -9,9 +9,10 @@ type Addition struct {
 	Username string `json:"username" required:"true"`
 	Password string `json:"password" required:"true"`
 	driver.RootID
-	//OrderBy        string `json:"order_by" type:"select" options:"file_id,file_name,size,update_at" default:"file_name"`
-	//OrderDirection string `json:"order_direction" type:"select" options:"asc,desc" default:"asc"`
+	// OrderBy        string `json:"order_by" type:"select" options:"file_id,file_name,size,update_at" default:"file_name"`
+	// OrderDirection string `json:"order_direction" type:"select" options:"asc,desc" default:"asc"`
 	AccessToken string
+	CustomUA    string `json:"custom_ua"`
 }
 
 var config = driver.Config{

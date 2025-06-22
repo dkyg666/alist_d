@@ -43,7 +43,7 @@ const (
 	S3Auth           = MainApi + "/file/s3_upload_object/auth"
 	UploadCompleteV2 = MainApi + "/file/upload_complete/v2"
 	S3Complete       = MainApi + "/file/s3_complete_multipart_upload"
-	//AuthKeySalt      = "8-8D$sL8gPjom7bk#cY"
+	// AuthKeySalt      = "8-8D$sL8gPjom7bk#cY"
 )
 
 func signPath(path string, os string, version string) (k string, v string) {
@@ -69,7 +69,7 @@ func GetApi(rawUrl string) string {
 	return u.String()
 }
 
-//func GetApi(url string) string {
+// func GetApi(url string) string {
 //	vm := js.New()
 //	vm.Set("url", url[22:])
 //	r, err := vm.RunString(`
@@ -142,7 +142,7 @@ func GetApi(rawUrl string) string {
 //	}
 //	v, _ := r.Export().(string)
 //	return url + "?" + v
-//}
+// }
 
 func (d *Pan123) login() error {
 	var body base.Json
@@ -163,10 +163,9 @@ func (d *Pan123) login() error {
 		SetHeaders(map[string]string{
 			"origin":      "https://www.123pan.com",
 			"referer":     "https://www.123pan.com/",
-			"user-agent":  "Dart/2.19(dart:io)-alist",
+			"user-agent":  d.CustomUA,
 			"platform":    "web",
 			"app-version": "3",
-			//"user-agent":  base.UserAgent,
 		}).
 		SetBody(body).Post(SignIn)
 	if err != nil {
@@ -180,7 +179,7 @@ func (d *Pan123) login() error {
 	return err
 }
 
-//func authKey(reqUrl string) (*string, error) {
+// func authKey(reqUrl string) (*string, error) {
 //	reqURL, err := url.Parse(reqUrl)
 //	if err != nil {
 //		return nil, err
@@ -192,7 +191,7 @@ func (d *Pan123) login() error {
 //	p4 := fmt.Sprintf("%d|%d|%s|%s|%s|%s", nowUnix, random, reqURL.Path, "web", "3", AuthKeySalt)
 //	authKey := fmt.Sprintf("%d-%d-%x", nowUnix, random, md5.Sum([]byte(p4)))
 //	return &authKey, nil
-//}
+// }
 
 func (d *Pan123) Request(url string, method string, callback base.ReqCallback, resp interface{}) ([]byte, error) {
 	isRetry := false
@@ -202,10 +201,9 @@ do:
 		"origin":        "https://www.123pan.com",
 		"referer":       "https://www.123pan.com/",
 		"authorization": "Bearer " + d.AccessToken,
-		"user-agent":    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) alist-client",
+		"user-agent":    d.CustomUA,
 		"platform":      "web",
 		"app-version":   "3",
-		//"user-agent":    base.UserAgent,
 	})
 	if callback != nil {
 		callback(req)
@@ -213,11 +211,11 @@ do:
 	if resp != nil {
 		req.SetResult(resp)
 	}
-	//authKey, err := authKey(url)
-	//if err != nil {
+	// authKey, err := authKey(url)
+	// if err != nil {
 	//	return nil, err
-	//}
-	//req.SetQueryParam("auth-key", *authKey)
+	// }
+	// req.SetQueryParam("auth-key", *authKey)
 	res, err := req.Execute(method, GetApi(url))
 	if err != nil {
 		return nil, err

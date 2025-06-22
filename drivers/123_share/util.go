@@ -26,7 +26,7 @@ const (
 	MainApi      = BApi
 	FileList     = MainApi + "/share/get"
 	DownloadInfo = MainApi + "/share/download/info"
-	//AuthKeySalt      = "8-8D$sL8gPjom7bk#cY"
+	// AuthKeySalt      = "8-8D$sL8gPjom7bk#cY"
 )
 
 func signPath(path string, os string, version string) (k string, v string) {
@@ -61,10 +61,9 @@ func (d *Pan123Share) request(url string, method string, callback base.ReqCallba
 		"origin":        "https://www.123pan.com",
 		"referer":       "https://www.123pan.com/",
 		"authorization": "Bearer " + d.AccessToken,
-		"user-agent":    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) alist-client",
+		"user-agent":    d.CustomUA,
 		"platform":      "web",
 		"app-version":   "3",
-		//"user-agent":    base.UserAgent,
 	})
 	if callback != nil {
 		callback(req)

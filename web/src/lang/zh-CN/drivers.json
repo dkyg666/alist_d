@@ -66,6 +66,7 @@
     "share_code-tips": "分享链接的分享码"
   },
   "123Pan": {
+    "custom_ua": "自定义UA",
     "password": "密码",
     "root_folder_id": "根文件夹ID",
     "username": "用户名"
@@ -80,6 +81,7 @@
   },
   "123PanShare": {
     "accesstoken": "访问令牌",
+    "custom_ua": "自定义UA",
     "root_folder_id": "根文件夹ID",
     "sharekey": "分享key",
     "sharepassword": "分享密码"

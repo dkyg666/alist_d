@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 built_at="$(date +'%F %T %z')"
-gitAuthor="vscodev"
+gitAuthor="dkyg"
 
 if [[ -n "$1" && "$1" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
   version="${1#v}"

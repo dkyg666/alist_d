@@ -324,7 +324,7 @@ func (y *Cloud189PC) login() (err error) {
 	_, err = y.client.R().
 		SetResult(&tokenInfo).SetError(&erron).
 		SetQueryParams(clientSuffix()).
-		SetQueryParam("redirectURL", url.QueryEscape(loginresp.ToUrl)).
+		SetQueryParam("redirectURL", loginresp.ToUrl).
 		Post(API_URL + "/getSessionForPC.action")
 	if err != nil {
 		return
@@ -489,7 +489,7 @@ func (y *Cloud189PC) StreamUpload(ctx context.Context, dstDir model.Obj, file mo
 		params.Set("familyId", y.FamilyID)
 		fullUrl += "/family"
 	} else {
-		//params.Set("extend", `{"opScene":"1","relativepath":"","rootfolderid":""}`)
+		// params.Set("extend", `{"opScene":"1","relativepath":"","rootfolderid":""}`)
 		fullUrl += "/person"
 	}
 
@@ -636,7 +636,7 @@ func (y *Cloud189PC) FastUpload(ctx context.Context, dstDir model.Obj, file mode
 		lastSliceSize = sliceSize
 	}
 
-	//step.1 优先计算所需信息
+	// step.1 优先计算所需信息
 	byteSize := sliceSize
 	fileMd5 := utils.MD5.NewFunc()
 	sliceMd5 := utils.MD5.NewFunc()
@@ -687,14 +687,14 @@ func (y *Cloud189PC) FastUpload(ctx context.Context, dstDir model.Obj, file mode
 	if isFamily {
 		fullUrl += "/family"
 	} else {
-		//params.Set("extend", `{"opScene":"1","relativepath":"","rootfolderid":""}`)
+		// params.Set("extend", `{"opScene":"1","relativepath":"","rootfolderid":""}`)
 		fullUrl += "/person"
 	}
 
 	// 尝试恢复进度
 	uploadProgress, ok := base.GetUploadProgress[*UploadProgress](y, y.getTokenInfo().SessionKey, fileMd5Hex)
 	if !ok {
-		//step.2 预上传
+		// step.2 预上传
 		params := Params{
 			"parentFolderId": dstDir.GetID(),
 			"fileName":       url.QueryEscape(file.GetName()),
